@@ -80,21 +80,91 @@ body {
   transition: left 0.3s ease;
 }
 
-#toggle:checked + .toggle-label {
+/* #toggle:checked + .toggle-label {
   background-color: #2196F3;
+} */
+
+#toggle:checked + .toggle-label {
+  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
+  background-size: 200% auto;
+  animation: liquidAnimation 10s ease infinite;
 }
+
+@keyframes liquidAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 #toggle:checked + .toggle-label:before {
   left: calc(100% - 28px);
 }
 
-.clockdate-wrapper {
+/* .clockdate-wrapper {
   background: #141e30;
   padding: 80px;
   max-width: 750px;
   width: 100%;
   text-align: center;
   border-radius: 20px;
+} */
+
+.clockdate-wrapper {
+  padding: 80px;
+  max-width: 750px;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+  background-image: linear-gradient(135deg, #FD6585 10%, #0D25B9 100%);
+  background-size: 200% auto;
+  animation: gradientAnimation 10s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.clockdate-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, rgba(255, 255, 255, 0) 60%);
+  animation: bubblesAnimation 5s linear infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bubblesAnimation {
+  0% {
+    top: -10%;
+    left: -10%;
+  }
+  50% {
+    transform: translate(10%, 10%);
+  }
+  100% {
+    top: 110%;
+    left: 110%;
+  }
 }
 
 #clock {
