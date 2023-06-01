@@ -23,8 +23,9 @@ function updateClock() {
   min = checkTime(min);
   sec = checkTime(sec);
 
-  document.getElementById("clock").innerHTML =
+  var clockText =
     hr + ":" + min + ":" + sec + " " + ap;
+  document.getElementById("clock").innerHTML = clockText;
 
   var months = [
     "January",
@@ -40,7 +41,7 @@ function updateClock() {
     "November",
     "December"
   ];
-  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satday"];
+  var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   var curWeekDay = days[today.getDay()];
   var curDay = today.getDate();
   var curMonth = months[today.getMonth()];
