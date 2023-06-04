@@ -2,58 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-}
-
-.toggle-wrapper {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.toggle-label {
-  display: inline-block;
-  width: 60px;
-  height: 30px;
-  background-color: grey;
-  border-radius: 15px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.toggle-label:before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 26px;
-  height: 26px;
-  background-color: #ccc;
-  border-radius: 50%;
-  transition: left 0.3s ease;
-}
-
-#toggle:checked + .toggle-label {
-  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
-  background-size: 200% auto;
-  animation: liquidAnimation 10s ease infinite;
-}
-
-@keyframes liquidAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-#toggle:checked + .toggle-label:before {
-  left: calc(100% - 28px);
+  height: 71vh;
 }
 
 .clockdate-wrapper {
@@ -133,6 +82,117 @@
   margin-top: 20px;
 }
 
-#toggle {
-  display: none;
+body {
+  margin: 0px;
+  background-color: #f8f8f8;
+}
+
+section {
+  width: 150px;
+  margin: 500px auto;
+  padding: 60px;
+  background-color: #fff;
+  box-shadow: 0px 5px 35px #d7d7d7;
+  border-radius: 35px;
+}
+
+.toggle-btn {
+  position: relative;
+  width: 145px;
+  height: 74px;
+  margin: 0 auto;
+  border-radius: 40px;
+}
+
+input[type="checkbox"] {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: 0px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+}
+
+/* Third toggle btn */
+
+#_3rd-toggle-btn span {
+  display: block;
+  width: 145px;
+  height: 38px;
+  background-color: #c7c7c7;
+  border-radius: 20px;
+  transition: 0.5s ease background-color;
+}
+
+#_3rd-toggle-btn span:before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  width: 70px;
+  height: 70px;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 2px 6px 25px #d7d7d7;
+  transform: translate(0px, 0px);
+  transition: 0.6s ease transform, 0.6s box-shadow;
+}
+
+#_3rd-toggle-btn span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  left: 35px;
+  width: 0px;
+  height: 24px;
+  margin-top: -36px;
+  margin-left: -6px;
+  border: 6px solid #000;
+  border-radius: 20px;
+  transform: translate(0px, 0px);
+  transition: 0.4s ease width, 0.4s ease border-radius, 0.62s ease transform;
+}
+
+#_3rd-toggle-btn input[type="checkbox"]:checked + span:before {
+  box-shadow: 7px 6px 25px #e6e6e6;
+  transform: translate(76px, 0px);
+}
+
+#_3rd-toggle-btn input[type="checkbox"]:checked + span:after {
+  width: 24px;
+  border-radius: 50%;
+  transform: translate(64px, 0px);
+}
+
+#_3rd-toggle-btn input[type="checkbox"]:checked + span {
+  background-image: linear-gradient(135deg, #FD6585 10%, #0D25B9 100%);
+  animation: gradientAnimation 5s ease infinite;
+}
+
+/* Third toggle btn completed */
+
+.toggle-text {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-family: arial, sans-serif;
+}
+
+.toggle-text {
+  white-space: nowrap;
+}
+
+#_3rd-toggle-btn input[type="checkbox"]:checked ~ .toggle-text:before {
+  content: "Switch to 24 hrs.";
+}
+
+#_3rd-toggle-btn input[type="checkbox"]:not(:checked) ~ .toggle-text:before {
+  content: "Switch to AM/PM";
 }

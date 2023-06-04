@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Clock and Date</title>
+    <title>Digital Clock</title>
     <link rel="stylesheet" href="style.css">
+    <link type="image/png" sizes="120x120" rel="icon" href="icons8-clock-120.png">
   </head>
   <body>
-    <div class="toggle-wrapper">
-      <input type="checkbox" id="toggle" onclick="toggleFormat()">
-      <label for="toggle" class="toggle-label"></label>
-    </div>
     <div id="clockdate">
       <div class="clockdate-wrapper">
         <div id="clock"></div>
         <div id="date"></div>
       </div>
+    </div>
+    <div class="toggle-btn" id="_3rd-toggle-btn">
+      <input type="checkbox">
+      <span></span>
+      <div class="toggle-text"></div>
     </div>
 
     <script src="script.js"></script>
