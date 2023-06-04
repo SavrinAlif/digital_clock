@@ -5,57 +5,6 @@
   height: 100vh;
 }
 
-.toggle-wrapper {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.toggle-label {
-  display: inline-block;
-  width: 60px;
-  height: 30px;
-  background-color: grey;
-  border-radius: 15px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.toggle-label:before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 26px;
-  height: 26px;
-  background-color: #ccc;
-  border-radius: 50%;
-  transition: left 0.3s ease;
-}
-
-#toggle:checked + .toggle-label {
-  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
-  background-size: 200% auto;
-  animation: liquidAnimation 10s ease infinite;
-}
-
-@keyframes liquidAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-#toggle:checked + .toggle-label:before {
-  left: calc(100% - 28px);
-}
-
 .clockdate-wrapper {
   padding: 80px;
   max-width: 750px;
@@ -131,6 +80,84 @@
   font-family: arial, sans-serif;
   color: #fff;
   margin-top: 20px;
+}
+
+.toggle-wrapper {
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
+}
+
+.toggle-label {
+  display: inline-block;
+  width: 110px;
+  height: 40px;
+  background-color: grey;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-label:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 1px;
+  right: 4px;
+  bottom: 4px;
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: left 0.5s ease;
+}
+
+#toggle:checked + .toggle-label {
+  background-image: linear-gradient(135deg, #52E5E7 10%, #130CB7 100%);
+  background-size: 200% auto;
+  animation: liquidAnimation 10s ease infinite;
+}
+
+#toggle:not(:checked) + .toggle-label {
+  background-image: linear-gradient(135deg, #FD6585 10%, #0D25B9 100%);
+  background-size: 200% auto;
+  animation: liquidAnimation 10s ease infinite;
+}
+
+@keyframes liquidAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#toggle:checked + .toggle-label:before {
+  left: calc(100% - 30px);
+}
+
+.toggle-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+#toggle:checked + .toggle-label ~ .toggle-text::before {
+  content: "24 hrs.";
+}
+
+#toggle:not(:checked) + .toggle-label ~ .toggle-text::before {
+  content: "AM/PM";
 }
 
 #toggle {
