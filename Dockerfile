@@ -5,7 +5,7 @@ FROM node:lts-alpine AS build
 WORKDIR /app
 
 # Copy the necessary files to the container
-COPY index.html style.css script.js /app/
+COPY index.html style.css script.js icons8-clock-120.png /app/
 COPY fonts /app/fonts
 
 # Install any dependencies
