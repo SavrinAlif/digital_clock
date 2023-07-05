@@ -196,3 +196,40 @@ input[type="checkbox"] {
 #_3rd-toggle-btn input[type="checkbox"]:not(:checked) ~ .toggle-text:before {
   content: "Switch to AM/PM";
 }
+
+.heart-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-family: 'GreatVibes-Regular', cursive;
+}
+
+.heart {
+  width: 300px;
+  height: 50px;
+  font-size: 12px;
+  line-height: 50px;
+  text-align: center;
+  color: rgb(0, 60, 255);
+  position: relative;
+  transform: rotate(0deg);
+  animation: heartbeat 2.8s infinite;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(0deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(0deg) scale(1);
+  }
+  75% {
+    transform: rotate(0deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}

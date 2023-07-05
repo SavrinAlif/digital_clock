@@ -5,16 +5,9 @@ FROM node:lts-alpine AS build
 WORKDIR /app
 
 # Copy the necessary files to the container
-COPY index.html style.css script.js icons8-clock-120.png /app/
+COPY index.html style.css script.js /app/
+COPY icons8-clock-120.png /app/
 COPY fonts /app/fonts
-
-# Install any dependencies
-# If your project requires any additional dependencies, add them to package.json and uncomment the following line
-# COPY package.json /app/
-# RUN npm install
-
-# Build the static files
-RUN npm install -g http-server
 
 # Use a lightweight web server to serve the static files
 FROM nginx:alpine
