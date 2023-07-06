@@ -34,12 +34,12 @@ jobs:
       - name: Login to DigitalOcean
         uses: appleboy/ssh-action@v0.0.6
         with:
-          host: ${{ secrets.DIGITALOCEAN_HOST }}
+          host: ${{ secrets.HOST }}
           username: root
-          key: ${{ secrets.DIGITALOCEAN_PRIVATE_KEY }}
+          key: ${{ secrets.PRIVATE_KEY }}
 
       - name: Pull Docker Image on DigitalOcean
-        run: ssh root@${{ secrets.DIGITALOCEAN_HOST }} "docker pull savrinalif/digital-clock:${{ github.sha }}"
+        run: ssh root@${{ secrets.HOST }} "docker pull savrinalif/digital-clock:${{ github.sha }}"
 
       - name: Run Docker Container
-        run: ssh root@${{ secrets.DIGITALOCEAN_HOST }} "docker run -d --name digital-clock --network nginx-proxy-manager_default savrinalif/digital-clock:${{ github.sha }}"
+        run: ssh root@${{ secrets.HOST }} "docker run -d --name digital-clock --network nginx-proxy-manager_default savrinalif/digital-clock:${{ github.sha }}"
