@@ -39,7 +39,7 @@ jobs:
           key: ${{ secrets.DIGITALOCEAN_PRIVATE_KEY }}
 
       - name: Pull Docker Image on DigitalOcean
-        run: ssh ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_SERVER_IP }} "docker pull savrinalif/digital-clock:${{ github.sha }}"
+        run: ssh ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }} "docker pull savrinalif/digital-clock:${{ github.sha }}"
 
       - name: Run Docker Container
-        run: ssh ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_SERVER_IP }} "docker run -d --name digital-clock --network nginx-proxy-manager_default savrinalif/digital-clock:${{ github.sha }}"
+        run: ssh ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }} "docker run -d --name digital-clock --network nginx-proxy-manager_default savrinalif/digital-clock:${{ github.sha }}"
