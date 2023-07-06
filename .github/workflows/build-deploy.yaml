@@ -1,0 +1,45 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Build Docker Image
+        run: docker build -t savrinalif/digital-clock:${{ github.sha }} .
+        
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: Push Docker Image
+        run: docker push savrinalif/digital-clock:${{ github.sha }}
+
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login to DigitalOcean
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DIGITALOCEAN_HOST }}
+          username: ${{ secrets.DIGITALOCEAN_USERNAME }}
+          key: ${{ secrets.DIGITALOCEAN_PRIVATE_KEY }}
+
+      - name: Pull Docker Image on DigitalOcean
+        run: ssh ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_SERVER_IP }} "docker pull savrinalif/digital-clock:${{ github.sha }}"
+
+      - name: Run Docker Container
+        run: ssh ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_SERVER_IP }} "docker run -d --name digital-clock --network nginx-proxy-manager_default savrinalif/digital-clock:${{ github.sha }}"
