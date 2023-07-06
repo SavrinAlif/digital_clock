@@ -1,4 +1,4 @@
-#Hello!
+#Hello world!
 
 To use this application as a docker container. Please follow the steps:
 
