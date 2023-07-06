@@ -1,6 +1,9 @@
-#Hello!
+#Hello World!
 
-To use this application as a docker container. Please follow the steps:
+This is an sample application for GitHub Action CI/CD pipeline to Docker Hub then deploy to the DigitalOcean Server
+
+# To see the application live visit at:
+www.zopedo.com or zopedo.com
 
 1. Clone this repository from the main branch.
 2. Install docker in your machine if not installed.
