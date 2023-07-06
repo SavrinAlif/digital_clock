@@ -36,7 +36,7 @@ jobs:
 
     steps:
       - name: Login to DigitalOcean
-        uses: appleboy/ssh-action@v0.0.6
+        uses: fifsky/ssh-action@v0.0.6
         with:
           host: ${{ secrets.HOST }}
           username: root
