@@ -53,10 +53,10 @@ jobs:
       - name: Stop and Delete Existing Container
         uses: fifsky/ssh-action@v0.0.6
         with:
-        host: ${{ secrets.HOST }}
-        username: root
-        key: ${{ secrets.PRIVATE_KEY }}
-        command: docker rm -f digital-clock || true
+          host: ${{ secrets.HOST }}
+          username: root
+          key: ${{ secrets.PRIVATE_KEY }}
+          command: docker rm -f digital-clock || true
 
       - name: Run Docker Container
         uses: fifsky/ssh-action@v0.0.6
