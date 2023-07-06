@@ -43,7 +43,17 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
 
       - name: Pull Docker Image on DigitalOcean
-        run: ssh root@${{ secrets.HOST }} "docker pull savrinalif/digital-clock:${{ github.run_number }}"
+        uses: fifsky/ssh-action@v0.0.6
+        with:
+          host: ${{ secrets.HOST }}
+          username: root
+          key: ${{ secrets.PRIVATE_KEY }}
+          command: docker pull savrinalif/digital-clock:${{ github.run_number }}
 
       - name: Run Docker Container
-        run: ssh root@${{ secrets.HOST }} "docker run -d --name digital-clock --network nginx-proxy-manager_default savrinalif/digital-clock:${{ github.run_number }}"
+        uses: fifsky/ssh-action@v0.0.6
+        with:
+          host: ${{ secrets.HOST }}
+          username: root
+          key: ${{ secrets.PRIVATE_KEY }}
+          command: docker run -d --name digital-clock --network nginx-proxy-manager_default savrinalif/digital-clock:${{ github.run_number }}
