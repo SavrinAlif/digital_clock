@@ -1,8 +1,8 @@
-#Hi!
+#Hello!
 
-To use this application as docker container. Please follow the steps:
+To use this application as a docker container. Please follow the steps:
 
-1. Clone this repository from main branch.
+1. Clone this repository from the main branch.
 2. Install docker in your machine if not installed.
 3. Run Docker build command.
 4. Run Docker run command exposing port 8005:80.
