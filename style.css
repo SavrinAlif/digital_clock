@@ -120,7 +120,7 @@ input[type="checkbox"] {
 
 /* Third toggle btn */
 
-#_3rd-toggle-btn span {
+#toggle-btn span {
   display: block;
   width: 145px;
   height: 38px;
@@ -129,7 +129,7 @@ input[type="checkbox"] {
   transition: 0.5s ease background-color;
 }
 
-#_3rd-toggle-btn span:before {
+#toggle-btn span:before {
   content: "";
   position: absolute;
   top: -16px;
@@ -142,7 +142,7 @@ input[type="checkbox"] {
   transition: 0.6s ease transform, 0.6s box-shadow;
 }
 
-#_3rd-toggle-btn span:after {
+#toggle-btn span:after {
   content: "";
   position: absolute;
   top: 50%;
@@ -158,18 +158,18 @@ input[type="checkbox"] {
   transition: 0.4s ease width, 0.4s ease border-radius, 0.62s ease transform;
 }
 
-#_3rd-toggle-btn input[type="checkbox"]:checked + span:before {
+#toggle-btn input[type="checkbox"]:checked + span:before {
   box-shadow: 7px 6px 25px #e6e6e6;
   transform: translate(76px, 0px);
 }
 
-#_3rd-toggle-btn input[type="checkbox"]:checked + span:after {
+#toggle-btn input[type="checkbox"]:checked + span:after {
   width: 24px;
   border-radius: 50%;
   transform: translate(64px, 0px);
 }
 
-#_3rd-toggle-btn input[type="checkbox"]:checked + span {
+#toggle-btn input[type="checkbox"]:checked + span {
   background-image: linear-gradient(135deg, #FD6585 10%, #0D25B9 100%);
   animation: gradientAnimation 5s ease infinite;
 }
@@ -189,11 +189,11 @@ input[type="checkbox"] {
   white-space: nowrap;
 }
 
-#_3rd-toggle-btn input[type="checkbox"]:checked ~ .toggle-text:before {
+#toggle-btn input[type="checkbox"]:checked ~ .toggle-text:before {
   content: "Switch to 24 hrs.";
 }
 
-#_3rd-toggle-btn input[type="checkbox"]:not(:checked) ~ .toggle-text:before {
+#toggle-btn input[type="checkbox"]:not(:checked) ~ .toggle-text:before {
   content: "Switch to AM/PM";
 }
 

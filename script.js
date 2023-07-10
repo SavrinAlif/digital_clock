@@ -66,7 +66,7 @@
     return i;
   }
 
-  const toggle = document.getElementById("_3rd-toggle-btn");
+  const toggle = document.getElementById("toggle-btn");
   const checkbox = toggle.querySelector('input[type="checkbox"]');
   const toggleText = toggle.querySelector(".toggle-text");
 
