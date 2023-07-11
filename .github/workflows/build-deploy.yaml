@@ -23,7 +23,6 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push Docker Image
-        id: docker_build
         uses: docker/build-push-action@v4
         with:
           context: .
@@ -51,24 +50,18 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           command: docker pull savrinalif/digital-clock:${{ github.run_number }}
 
-      - name: Stop and Delete Existing Container (if new container is running)
-        id: stop_delete
+      - name: Stop and Delete Existing Container
         uses: fifsky/ssh-action@v0.0.6
         with:
           host: ${{ secrets.HOST }}
           username: root
           key: ${{ secrets.PRIVATE_KEY }}
-          command: |
-            if docker inspect digital-clock-new &>/dev/null; then
-              docker stop digital-clock && docker rm -f digital-clock || true
-              docker rename digital-clock-new digital-clock
-            fi
+          command: docker rm -f digital-clock || true
 
-      - name: Run Docker Container (New)
-        if: steps.stop_delete.outputs.returncode == '0'
+      - name: Run Docker Container
         uses: fifsky/ssh-action@v0.0.6
         with:
           host: ${{ secrets.HOST }}
           username: root
           key: ${{ secrets.PRIVATE_KEY }}
-          command: docker run -d --name digital-clock-new --network nginx-proxy-manager_default savrinalif/digital-clock:${{ github.run_number }}
+          command: docker run -d --name digital-clock --network nginx-proxy-manager_default savrinalif/digital-clock:${{ github.run_number }}
