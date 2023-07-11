@@ -16,7 +16,7 @@ FROM nginx:alpine
 COPY --from=build --chown=nginx:nginx /app /usr/share/nginx/html
 
 # Expose the default port
-EXPOSE 80
+#EXPOSE 80
 
 # Start the nginx web server
 CMD ["nginx", "-g", "daemon off;"]
