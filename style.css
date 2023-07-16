@@ -28,11 +28,11 @@ body.dark-mode {
 }
 
 .theme-button.moon {
-  background-image: url('C:\\Users\\alifa\\Documents\\GitHub\\digital_clock\\assets\\theme-button-icons\\moon.gif');
+  background-image: url("assets/moon.gif");
 }
 
 .theme-button.sun {
-  background-image: url('C:\\Users\\alifa\\Documents\\GitHub\\digital_clock\\assets\\theme-button-icons\\sun.gif');
+  background-image: url("assets/sun.gif");
 }
 
 .theme-button:hover {

@@ -8,6 +8,7 @@ WORKDIR /app
 COPY --chown=node:node index.html style.css script.js /app/
 COPY --chown=node:node icons8-clock-120.png /app/
 COPY --chown=node:node fonts /app/fonts
+COPY --chown=node:node assets /app/assets
 
 # Use a lightweight web server to serve the static files
 FROM nginx:alpine
@@ -16,7 +17,7 @@ FROM nginx:alpine
 COPY --from=build --chown=nginx:nginx /app /usr/share/nginx/html
 
 # Expose the default port
-#EXPOSE 80
+# EXPOSE 80
 
 # Start the nginx web server
 CMD ["nginx", "-g", "daemon off;"]
