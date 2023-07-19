@@ -264,7 +264,7 @@ input[type="checkbox"] {
   font-size: 12px;
   line-height: 50px;
   text-align: center;
-  color: rgb(255, 0, 0);
+  color: rgb(0, 94, 255);
   position: relative;
   transform: rotate(0deg);
   animation: heartbeat 2.8s infinite;
