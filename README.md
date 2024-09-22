@@ -1,6 +1,6 @@
 #Hello World!
 
-This is an sample application for GitHub Action CI/CD pipeline to Docker Hub then deploy to the DigitalOcean Server
+This is an sample application for GitHub Action CI/CD pipeline to Docker Hub then deploy to the Server
 
 # To see the application live visit at:
 www.zopedo.com or zopedo.com
